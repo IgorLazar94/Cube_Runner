@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrackLogic : MonoBehaviour
 {
     [SerializeField] private GameObject trackPart;
-    [SerializeField] private List<PartTrackLogic> tracksList = new List<PartTrackLogic>();
+    private List<PartTrackLogic> tracksList = new List<PartTrackLogic>();
 
     private void Start()
     {
@@ -28,7 +28,6 @@ public class TrackLogic : MonoBehaviour
 
     private void RemoveOldTrack()
     {
-        Debug.LogWarning(tracksList[0]);
         Destroy(tracksList[0].gameObject, 2f);
         tracksList.Remove(tracksList[0]);
     }

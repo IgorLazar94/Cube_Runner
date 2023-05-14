@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
         CreateRigidbodiesList();
         DisableRagdoll();
     }
+
     private void CheckBorders()
     {
         float playerPosX = transform.position.x;
@@ -41,4 +42,6 @@ public class PlayerController : MonoBehaviour
             playerRigidbodies[i].isKinematic = true;
         }
     }
+
+
 }

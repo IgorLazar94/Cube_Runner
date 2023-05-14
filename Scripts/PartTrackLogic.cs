@@ -8,9 +8,7 @@ public class PartTrackLogic : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Hello");
             transform.parent.gameObject.GetComponent<TrackLogic>().UpdateTrack();
-            Debug.Log("World");
         }
     }
 }
