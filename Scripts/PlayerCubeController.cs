@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,18 @@ public class PlayerCubeController : MonoBehaviour
     [SerializeField] private PlayerCubeBehaviour playerCub;
     [SerializeField] private GameObject cubeHolder;
     private float stepHeight;
- 
+
+    //public static Action onRemovedCube;
+
+    //private void OnEnable()
+    //{
+    //    onRemovedCube += RemoveCube;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    onRemovedCube += RemoveCube;
+    //}
     private void Start()
     {
         stepHeight = GetComponentInChildren<PlayerCubeBehaviour>().gameObject.transform.localScale.y;
@@ -28,10 +40,16 @@ public class PlayerCubeController : MonoBehaviour
     {
         gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + difference, transform.position.z);
     }
-    public void RemoveCube(PlayerCubeBehaviour _playerCubeBehaviour)
+    public void RemoveCube()
     {
-        playerCubs.Remove(_playerCubeBehaviour);
-        UpdateHeight(-1);
+        PlayerCubeBehaviour lastCube = playerCubs[playerCubs.Count - 1];
+        playerCubs.Remove(lastCube);
+        Invoke("RemoveHeight", 0.25f);
+    }
+
+    private void RemoveHeight()
+    {
+        UpdateHeight(-stepHeight);
     }
 
     private void OnTriggerEnter(Collider other)
