@@ -30,6 +30,7 @@ public class PlayerCubeController : MonoBehaviour
 
     public void AddCube()
     {
+        gameObject.GetComponent<PlayerController>().StartJumpAnimation();
         PlayerCubeBehaviour newCube = Instantiate(playerCub, transform.position, Quaternion.identity);
         playerCubs.Add(newCube);
         newCube.transform.parent = cubeHolder.transform;
@@ -41,9 +42,11 @@ public class PlayerCubeController : MonoBehaviour
     {
         gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + difference, transform.position.z);
     }
-    public void RemoveCube()
+    public void RemoveCube(/*PlayerCubeBehaviour playerCube*/)
     {
+        gameObject.GetComponent<PlayerController>().StartJumpAnimation();
         PlayerCubeBehaviour lastCube = playerCubs[playerCubs.Count - 1];
+        //playerCubs.Remove(playerCube);
         playerCubs.Remove(lastCube);
         Invoke("RemoveHeight", 0.25f);
         if (playerCubs.Count <= 0)

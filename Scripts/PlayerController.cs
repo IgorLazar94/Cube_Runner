@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public ParticleSystem warpFX;
     private float playerBorder = 2f;
     private List<Rigidbody> playerRigidbodies = new List<Rigidbody>();
+    private Animator playerAnimator;
 
     private void Start()
     {
+        playerAnimator = GetComponentInChildren<Animator>();
         warpFX = GetComponentInChildren<ParticleSystem>();
         CreateRigidbodiesList();
         DisableRagdoll();
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
     private void DisableRagdoll()
     {
+        playerAnimator.enabled = true;
         for (int i = 0; i < playerRigidbodies.Count; i++)
         {
             playerRigidbodies[i].isKinematic = true;
@@ -47,11 +50,16 @@ public class PlayerController : MonoBehaviour
 
     public void EnableRagdoll()
     {
-        Debug.Log("enable ragdoll");
+        playerAnimator.enabled = false;
         for (int i = 0; i < playerRigidbodies.Count; i++)
         {
             playerRigidbodies[i].isKinematic = false;
         }
+    }
+
+    public void StartJumpAnimation()
+    {
+        playerAnimator.SetTrigger("Jump");
     }
 
 

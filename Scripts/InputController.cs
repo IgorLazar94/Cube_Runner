@@ -26,10 +26,7 @@ public class InputController : MonoBehaviour
         }
 
         CheckInput();
-        if (isDragging)
-        {
-            PlayerOffsetX();
-        }
+        
 
     }
 
@@ -58,6 +55,11 @@ public class InputController : MonoBehaviour
             if (touch.phase == TouchPhase.Ended)
             {
                 isDragging = false;
+            }
+
+            if (isDragging)
+            {
+                PlayerOffsetX();
             }
         }
     }

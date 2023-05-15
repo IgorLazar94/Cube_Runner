@@ -5,27 +5,16 @@ using UnityEngine;
 
 public class PlayerCubeBehaviour : MonoBehaviour
 {
-   
-
-    private bool isPickUp = false;
-
-    public bool GetIsPickUp()
-    {
-        return isPickUp;
-    }
-
-    public void SetIsPickUp(bool value)
-    {
-        isPickUp = value;
-    }
+    private bool isInParent = true;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<ObstacleCubeBehaviour>() &&
-            collision.gameObject.GetComponent<ObstacleCubeBehaviour>().GetIsInteractive())
+            collision.gameObject.GetComponent<ObstacleCubeBehaviour>().GetIsInteractive() && isInParent)
         {
+            isInParent = false;
             collision.gameObject.GetComponent<ObstacleCubeBehaviour>().SetIsInteractive(false);
-            transform.parent.root.GetComponent<PlayerCubeController>().RemoveCube();
+            transform.parent.root.GetComponent<PlayerCubeController>().RemoveCube(/*this*/);
             gameObject.transform.parent = null;
             Destroy(gameObject, 1.0f);
         }
