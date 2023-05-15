@@ -41,7 +41,11 @@ public class PlayerCubeController : MonoBehaviour
 
     private void UpdateHeight(float difference)
     {
-        gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + difference, transform.position.z);
+        //gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + difference, transform.position.z);
+
+        Vector3 newPos = new Vector3(transform.position.x, transform.position.y + difference, transform.position.z);
+        var t = Time.deltaTime * 70f;
+        gameObject.transform.position = Vector3.Lerp(transform.position, newPos, t);
     }
     public void RemoveCube(/*PlayerCubeBehaviour playerCube*/)
     {
