@@ -13,7 +13,6 @@ public class PlayerCubeController : MonoBehaviour
     {
         stepHeight = GetComponentInChildren<PlayerCubeBehaviour>().gameObject.transform.localScale.y;
         playerCubs.Add(GetComponentInChildren<PlayerCubeBehaviour>());
-        Debug.Log(stepHeight + " step Height");
     }
 
     public void AddCube()
@@ -21,8 +20,7 @@ public class PlayerCubeController : MonoBehaviour
         PlayerCubeBehaviour newCube = Instantiate(playerCub, transform.position, Quaternion.identity);
         playerCubs.Add(newCube);
         newCube.transform.parent = cubeHolder.transform;
-        newCube.transform.position = new Vector3(transform.position.x, transform.position.y - (stepHeight * playerCubs.Count) + (stepHeight/2), transform.position.z);
-        Debug.Log(transform.position.y - stepHeight * playerCubs.Count + "Step Height Update");
+        newCube.transform.position = new Vector3(transform.position.x, transform.position.y - (stepHeight * (playerCubs.Count - 1)) + (stepHeight/2), transform.position.z);
         UpdateHeight(stepHeight);
     }
 
