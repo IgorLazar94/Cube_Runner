@@ -5,6 +5,12 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] PlayerController playerObject;
+    private float shakeDuration = 0.3f;
+    private float shakeAmount = 0.4f;
+    private float decreaseFactor = 1f;
+    [HideInInspector] public bool isShaking;
+
+    private float currentShakeDuration = 0f;
 
     private void FollowPlayer()
     {
@@ -14,5 +20,27 @@ public class CameraController : MonoBehaviour
     private void LateUpdate()
     {
         FollowPlayer();
+        Shaking();
+    }
+
+    public void ShakeCamera()
+    {
+        currentShakeDuration = shakeDuration;
+    }
+
+    private void Shaking()
+    {
+        if (currentShakeDuration > 0)
+        {
+            isShaking = true;
+            transform.localPosition = transform.localPosition + Random.insideUnitSphere * shakeAmount;
+
+            currentShakeDuration -= Time.deltaTime * decreaseFactor;
+        }
+        else
+        {
+            isShaking = false;
+            currentShakeDuration = 0f;
+        }
     }
 }

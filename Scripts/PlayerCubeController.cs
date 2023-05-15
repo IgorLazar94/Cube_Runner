@@ -9,6 +9,8 @@ public class PlayerCubeController : MonoBehaviour
     [SerializeField] private PlayerCubeBehaviour playerCub;
     [SerializeField] private GameObject cubeHolder;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private CameraController cameraShake;
+    [SerializeField] private PhoneVibration phoneVibration;
     private float stepHeight;
 
     //public static Action onRemovedCube;
@@ -50,6 +52,12 @@ public class PlayerCubeController : MonoBehaviour
     }
     public void RemoveCube(/*PlayerCubeBehaviour playerCube*/)
     {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            Handheld.Vibrate();
+        }
+
+        cameraShake.ShakeCamera();
         gameObject.GetComponent<PlayerController>().StartJumpAnimation();
         PlayerCubeBehaviour lastCube = playerCubs[playerCubs.Count - 1];
         //playerCubs.Remove(playerCube);
