@@ -30,6 +30,7 @@ public class PlayerCubeController : MonoBehaviour
 
     public void AddCube()
     {
+        gameObject.GetComponent<PlayerController>().PlayCubStackFX();
         gameObject.GetComponent<PlayerController>().UpdateScoresAnimation();
         gameObject.GetComponent<PlayerController>().StartJumpAnimation();
         PlayerCubeBehaviour newCube = Instantiate(playerCub, transform.position, Quaternion.identity);

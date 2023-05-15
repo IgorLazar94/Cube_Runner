@@ -100,6 +100,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Screenspace: 1
@@ -118,7 +119,8 @@ Material:
     m_Colors:
     - Color_5b1db83f204847ef8e58678c7844186c: {r: 0.28230685, g: 0.8578102, b: 0.9811321,
         a: 1}
-    - Color_60b390e5d9e14d269f96bc16e222e818: {r: 0.5990566, g: 1, b: 0.9149514, a: 1}
+    - Color_60b390e5d9e14d269f96bc16e222e818: {r: 0.73985404, g: 0.9622642, b: 0.91429335,
+        a: 1}
     - Vector4_f4fa355af6364656812f6ca20ca23397: {r: 1.9, g: 2, b: 1, a: -1.6}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Bottom: {r: 1, g: 1, b: 1, a: 0}

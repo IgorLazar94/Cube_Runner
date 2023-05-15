@@ -32,9 +32,12 @@ public class PlayerTrail : MonoBehaviour
 
         // Встановлення ширини та плоскості TrailRenderer
         trailRenderer.widthMultiplier = trailWidth;
-        if (isFlat) {
+        if (isFlat)
+        {
             trailRenderer.alignment = LineAlignment.View;
-        } else {
+        }
+        else
+        {
             trailRenderer.alignment = LineAlignment.TransformZ;
         }
 

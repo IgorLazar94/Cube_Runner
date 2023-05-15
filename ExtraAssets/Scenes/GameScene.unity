@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 0e49d512f30918d4ca01d643edfd1026, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.42520308, g: 0.8772854, b: 0.84202915, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -479,6 +479,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1100450012854217599, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: isFlat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100450012854217599, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: trailPositionY
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1282929739267465211, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -576,18 +586,83 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651621221093161757, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651621221093161757, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1689237088}
     - target: {fileID: 5410146746237015125, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410146746237015125, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.335
       objectReference: {fileID: 0}
     - target: {fileID: 7885576064885773956, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.475
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909639616521277173, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Emitting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909639616521277173, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909639616521277173, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Parameters.alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909639616521277173, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909639616521277173, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909639616521277173, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.84313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909639616521277173, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909639616521277173, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.21333212
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909639616521277173, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.84635127
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909639616521277173, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909639616521277173, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Parameters.generateLightingData
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
@@ -2306,7 +2381,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.990566, g: 0.87147474, b: 0.54668033, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30

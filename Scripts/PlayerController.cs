@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] ParticleSystem cubeStackFX;
     [HideInInspector] public ParticleSystem warpFX;
     private float playerBorder = 2f;
     private List<Rigidbody> playerRigidbodies = new List<Rigidbody>();
@@ -70,4 +71,8 @@ public class PlayerController : MonoBehaviour
         scoresText.gameObject.GetComponent<Animator>().SetTrigger("UpdateScore");
     }
 
+    public void PlayCubStackFX()
+    {
+        cubeStackFX.Play();
+    }
 }
