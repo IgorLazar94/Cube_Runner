@@ -7,7 +7,7 @@ public class PlayerCubeBehaviour : MonoBehaviour
 {
     private bool isInParent = true;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.GetComponent<ObstacleCubeBehaviour>() &&
             collision.gameObject.GetComponent<ObstacleCubeBehaviour>().GetIsInteractive() && isInParent)
