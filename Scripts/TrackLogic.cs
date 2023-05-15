@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TrackLogic : MonoBehaviour
 {
-    [SerializeField] private GameObject trackPart;
+    //[SerializeField] private GameObject trackPart;
+    [SerializeField] private List<GameObject> partTracks = new List<GameObject>();
     private List<PartTrackLogic> tracksList = new List<PartTrackLogic>();
 
     private void Start()
@@ -35,10 +36,17 @@ public class TrackLogic : MonoBehaviour
     private void InstallNewTrack()
     {
         var lastPartTrack = tracksList[tracksList.Count - 1];
-        var newPartOfTrack = Instantiate(trackPart, new Vector3(transform.position.x, 
+        var newPartOfTrack = Instantiate(ChooseRandomTrack(), new Vector3(transform.position.x, 
                                            transform.position.y, 
                                            lastPartTrack.transform.position.z + 30), Quaternion.identity);
         newPartOfTrack.transform.parent = gameObject.transform;
         tracksList.Add(newPartOfTrack.GetComponent<PartTrackLogic>());
+    }
+
+    private GameObject ChooseRandomTrack()
+    {
+        int randomNumber = Random.Range(0, partTracks.Count);
+        GameObject randomTrack = partTracks[randomNumber];
+        return randomTrack;
     }
 }

@@ -1451,7 +1451,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &816196954
 MonoBehaviour:
@@ -1465,8 +1465,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba5fda2e6a678d147b675ab6c9a2ac20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackPart: {fileID: 8635103698508136598, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
-    type: 3}
+  partTracks:
+  - {fileID: 5599962350980596193, guid: 861d2858837012a49899bfb03fdee7b9, type: 3}
+  - {fileID: 13340554834906256, guid: 7b04ec9edfacf854a81ab1c17607b6c4, type: 3}
+  - {fileID: 3694413783731344829, guid: df3662fb8eb44834bbcf8fbc8bc09bf2, type: 3}
 --- !u!4 &816196955
 Transform:
   m_ObjectHideFlags: 0
@@ -1714,10 +1716,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 816196955}
     m_Modifications:
+    - target: {fileID: 3588030195717391028, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8635103698508136598, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
         type: 3}
       propertyPath: m_Name
       value: TrackGround (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635103698508136598, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8635103698508136599, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
         type: 3}
@@ -2079,10 +2091,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 816196955}
     m_Modifications:
+    - target: {fileID: 3588030195717391028, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8635103698508136598, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
         type: 3}
       propertyPath: m_Name
       value: TrackGround (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635103698508136598, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8635103698508136599, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
         type: 3}
@@ -2148,10 +2170,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 816196955}
     m_Modifications:
+    - target: {fileID: 3588030195717391028, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8635103698508136598, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
         type: 3}
       propertyPath: m_Name
       value: TrackGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635103698508136598, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8635103698508136599, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
         type: 3}
