@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [HideInInspector] public ParticleSystem warpFX;
     private float playerBorder = 2f;
     private List<Rigidbody> playerRigidbodies = new List<Rigidbody>();
 
     private void Start()
     {
+        warpFX = GetComponentInChildren<ParticleSystem>();
         CreateRigidbodiesList();
         DisableRagdoll();
     }

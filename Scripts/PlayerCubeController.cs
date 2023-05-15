@@ -46,7 +46,6 @@ public class PlayerCubeController : MonoBehaviour
         PlayerCubeBehaviour lastCube = playerCubs[playerCubs.Count - 1];
         playerCubs.Remove(lastCube);
         Invoke("RemoveHeight", 0.25f);
-        Debug.Log(playerCubs.Count + "playerCubs.Count");
         if (playerCubs.Count <= 0)
         {
             StartCoroutine(ActivateLoseProcess());
@@ -55,6 +54,7 @@ public class PlayerCubeController : MonoBehaviour
 
     private IEnumerator ActivateLoseProcess()
     {
+        gameObject.GetComponent<PlayerController>().warpFX.Stop();
         gameObject.GetComponent<PlayerController>().EnableRagdoll();
         gameObject.GetComponent<InputController>().SetIsTapToMove(false);
         gameObject.GetComponent<InputController>().SetIsLoseState(true);

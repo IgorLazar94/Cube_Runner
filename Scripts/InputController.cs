@@ -68,11 +68,11 @@ public class InputController : MonoBehaviour
         {
             SetIsTapToMove(true);
             gameManager.ActivateStartPanel(false);
+            gameObject.GetComponent<PlayerController>().warpFX.Play();
         }
     }
     private void PlayerOffsetX()
     {
-
         Touch touch = Input.GetTouch(0);
         dragEndPos = touch.position.x;
         float offsetValue = dragEndPos - dragStartPos;

@@ -28,7 +28,7 @@ public class TrackLogic : MonoBehaviour
 
     private void RemoveOldTrack()
     {
-        Destroy(tracksList[0].gameObject, 2f);
+        Destroy(tracksList[0].gameObject, 5f);
         tracksList.Remove(tracksList[0]);
     }
 
