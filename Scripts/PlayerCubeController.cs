@@ -8,6 +8,7 @@ public class PlayerCubeController : MonoBehaviour
     [SerializeField] private List<PlayerCubeBehaviour> playerCubs = new List<PlayerCubeBehaviour>();
     [SerializeField] private PlayerCubeBehaviour playerCub;
     [SerializeField] private GameObject cubeHolder;
+    [SerializeField] private GameManager gameManager;
     private float stepHeight;
 
     //public static Action onRemovedCube;
@@ -45,7 +46,23 @@ public class PlayerCubeController : MonoBehaviour
         PlayerCubeBehaviour lastCube = playerCubs[playerCubs.Count - 1];
         playerCubs.Remove(lastCube);
         Invoke("RemoveHeight", 0.25f);
+        Debug.Log(playerCubs.Count + "playerCubs.Count");
+        if (playerCubs.Count <= 0)
+        {
+            StartCoroutine(ActivateLoseProcess());
+        }
     }
+
+    private IEnumerator ActivateLoseProcess()
+    {
+        gameObject.GetComponent<PlayerController>().EnableRagdoll();
+        gameObject.GetComponent<InputController>().SetIsTapToMove(false);
+        gameObject.GetComponent<InputController>().SetIsLoseState(true);
+        yield return new WaitForSeconds(1.0f);
+        gameManager.ActivateLosePanel(true);
+    }
+
+    
 
     private void RemoveHeight()
     {

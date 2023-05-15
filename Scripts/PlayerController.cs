@@ -43,5 +43,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void EnableRagdoll()
+    {
+        Debug.Log("enable ragdoll");
+        for (int i = 0; i < playerRigidbodies.Count; i++)
+        {
+            playerRigidbodies[i].isKinematic = false;
+        }
+    }
+
 
 }

@@ -6,13 +6,24 @@ public class InputController : MonoBehaviour
 {
     [SerializeField] private float offsetSpeed;
     [SerializeField] private float moveForwardSpeed;
-    private bool isDragging = false;
+    [SerializeField] GameManager gameManager;
+    private bool isLoseState;
     private float dragStartPos;
     private float dragEndPos;
+    private bool isDragging = false;
+    private bool isTapToMove = false;
+
+    private void Start()
+    {
+        isLoseState = false;
+    }
 
     private void FixedUpdate()
     {
-        PlayerForwardMovement();
+        if (isTapToMove && !isLoseState)
+        {
+            PlayerForwardMovement();
+        }
 
         CheckInput();
         if (isDragging)
@@ -22,11 +33,22 @@ public class InputController : MonoBehaviour
 
     }
 
+    public void SetIsTapToMove(bool value)
+    {
+        isTapToMove = value;
+    }
+    public void SetIsLoseState(bool value)
+    {
+        isLoseState = value;
+    }
+
     private void CheckInput()
     {
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
+            StartLogic();
+
             if (touch.phase == TouchPhase.Began)
             {
                 isDragging = true;
@@ -37,6 +59,15 @@ public class InputController : MonoBehaviour
             {
                 isDragging = false;
             }
+        }
+    }
+
+    private void StartLogic()
+    {
+        if (!isTapToMove)
+        {
+            SetIsTapToMove(true);
+            gameManager.ActivateStartPanel(false);
         }
     }
     private void PlayerOffsetX()
