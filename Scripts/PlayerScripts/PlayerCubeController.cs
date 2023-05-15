@@ -10,7 +10,6 @@ public class PlayerCubeController : MonoBehaviour
     [SerializeField] private GameObject cubeHolder;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private CameraController cameraShake;
-    [SerializeField] private PhoneVibration phoneVibration;
     private float stepHeight;
 
     //public static Action onRemovedCube;
