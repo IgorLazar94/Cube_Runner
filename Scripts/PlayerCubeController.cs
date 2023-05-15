@@ -30,6 +30,7 @@ public class PlayerCubeController : MonoBehaviour
 
     public void AddCube()
     {
+        gameObject.GetComponent<PlayerController>().UpdateScoresAnimation();
         gameObject.GetComponent<PlayerController>().StartJumpAnimation();
         PlayerCubeBehaviour newCube = Instantiate(playerCub, transform.position, Quaternion.identity);
         playerCubs.Add(newCube);
@@ -49,6 +50,7 @@ public class PlayerCubeController : MonoBehaviour
         //playerCubs.Remove(playerCube);
         playerCubs.Remove(lastCube);
         Invoke("RemoveHeight", 0.25f);
+
         if (playerCubs.Count <= 0)
         {
             StartCoroutine(ActivateLoseProcess());

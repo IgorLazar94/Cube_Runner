@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,9 +9,11 @@ public class PlayerController : MonoBehaviour
     private float playerBorder = 2f;
     private List<Rigidbody> playerRigidbodies = new List<Rigidbody>();
     private Animator playerAnimator;
+    private TextMeshPro scoresText;
 
     private void Start()
     {
+        scoresText = GetComponentInChildren<TextMeshPro>();
         playerAnimator = GetComponentInChildren<Animator>();
         warpFX = GetComponentInChildren<ParticleSystem>();
         CreateRigidbodiesList();
@@ -62,5 +65,9 @@ public class PlayerController : MonoBehaviour
         playerAnimator.SetTrigger("Jump");
     }
 
+    public void UpdateScoresAnimation()
+    {
+        scoresText.gameObject.GetComponent<Animator>().SetTrigger("UpdateScore");
+    }
 
 }
