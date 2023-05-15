@@ -7,6 +7,7 @@ public class TrackLogic : MonoBehaviour
     //[SerializeField] private GameObject trackPart;
     [SerializeField] private List<GameObject> partTracks = new List<GameObject>();
     private List<PartTrackLogic> tracksList = new List<PartTrackLogic>();
+    private float distanceToUp = 30;
 
     private void Start()
     {
@@ -16,7 +17,6 @@ public class TrackLogic : MonoBehaviour
         {
             tracksList.Add(tracksLogic[i]);
         }
-
 
     }
 
@@ -37,9 +37,10 @@ public class TrackLogic : MonoBehaviour
     {
         var lastPartTrack = tracksList[tracksList.Count - 1];
         var newPartOfTrack = Instantiate(ChooseRandomTrack(), new Vector3(transform.position.x, 
-                                           transform.position.y, 
+                                           transform.position.y - distanceToUp, 
                                            lastPartTrack.transform.position.z + 30), Quaternion.identity);
         newPartOfTrack.transform.parent = gameObject.transform;
+        newPartOfTrack.GetComponent<PartTrackLogic>().StartPickUpTrack(distanceToUp);
         tracksList.Add(newPartOfTrack.GetComponent<PartTrackLogic>());
     }
 
@@ -48,5 +49,10 @@ public class TrackLogic : MonoBehaviour
         int randomNumber = Random.Range(0, partTracks.Count);
         GameObject randomTrack = partTracks[randomNumber];
         return randomTrack;
+    }
+
+    private void UpPartTrack()
+    {
+
     }
 }
