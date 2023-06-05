@@ -73,6 +73,7 @@ public class InputController : MonoBehaviour
             gameObject.GetComponent<PlayerController>().warpFX.Play();
         }
     }
+
     private void PlayerOffsetX()
     {
         Touch touch = Input.GetTouch(0);

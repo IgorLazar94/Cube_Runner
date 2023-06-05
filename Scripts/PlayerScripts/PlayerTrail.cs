@@ -8,14 +8,11 @@ public class PlayerTrail : MonoBehaviour
     public bool isFlat = true;
 
     void Start () {
-        // Прикріплення TrailRenderer до гравця
         trailRenderer.transform.parent = transform;
-        // Встановлення позиції та ширини TrailRenderer
         SetTrailPositionAndWidth();
     }
 
     void LateUpdate () {
-        // Оновлення позиції та ширини TrailRenderer зі змінним trailPositionY та trailWidth
         SetTrailPositionAndWidth();
     }
 
@@ -25,12 +22,16 @@ public class PlayerTrail : MonoBehaviour
         {
             return;
         }
-        // Встановлення позиції TrailRenderer
         Vector3 trailPosition = transform.position;
         trailPosition.y = trailPositionY;
         trailRenderer.transform.position = trailPosition;
 
-        // Встановлення ширини та плоскості TrailRenderer
+        SetTrailWidth();
+        trailRenderer.time = Mathf.Clamp(trailRenderer.time + Time.deltaTime, 0f, 2f);
+    }
+
+    private void SetTrailWidth()
+    {
         trailRenderer.widthMultiplier = trailWidth;
         if (isFlat)
         {
@@ -40,8 +41,5 @@ public class PlayerTrail : MonoBehaviour
         {
             trailRenderer.alignment = LineAlignment.TransformZ;
         }
-
-        // Встановлення плавної появи лінії
-        trailRenderer.time = Mathf.Clamp(trailRenderer.time + Time.deltaTime, 0f, 2f);
     }
 }

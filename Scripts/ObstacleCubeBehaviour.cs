@@ -15,7 +15,4 @@ public class ObstacleCubeBehaviour : MonoBehaviour
     {
         return isInteractive;
     }
-
-
-
 }

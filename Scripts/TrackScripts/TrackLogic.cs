@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TrackLogic : MonoBehaviour
 {
-    //[SerializeField] private GameObject trackPart;
     [SerializeField] private List<GameObject> partTracks = new List<GameObject>();
     private List<PartTrackLogic> tracksList = new List<PartTrackLogic>();
     private float distanceToUp = 30;
@@ -17,14 +16,12 @@ public class TrackLogic : MonoBehaviour
         {
             tracksList.Add(tracksLogic[i]);
         }
-
     }
 
     public void UpdateTrack()
     {
         RemoveOldTrack();
         InstallNewTrack();
-
     }
 
     private void RemoveOldTrack()
@@ -49,10 +46,5 @@ public class TrackLogic : MonoBehaviour
         int randomNumber = Random.Range(0, partTracks.Count);
         GameObject randomTrack = partTracks[randomNumber];
         return randomTrack;
-    }
-
-    private void UpPartTrack()
-    {
-
     }
 }

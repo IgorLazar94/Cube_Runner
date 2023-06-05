@@ -10,30 +10,24 @@ public class PlayerCubeController : MonoBehaviour
     [SerializeField] private GameObject cubeHolder;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private CameraController cameraShake;
+
+    private PlayerController playerController;
+    private InputController inputController;
     private float stepHeight;
 
-    //public static Action onRemovedCube;
-
-    //private void OnEnable()
-    //{
-    //    onRemovedCube += RemoveCube;
-    //}
-
-    //private void OnDisable()
-    //{
-    //    onRemovedCube += RemoveCube;
-    //}
     private void Start()
     {
+        inputController = gameObject.GetComponent<InputController>();
+        playerController = gameObject.GetComponent<PlayerController>();
         stepHeight = GetComponentInChildren<PlayerCubeBehaviour>().gameObject.transform.localScale.y;
         playerCubs.Add(GetComponentInChildren<PlayerCubeBehaviour>());
     }
 
     public void AddCube()
     {
-        gameObject.GetComponent<PlayerController>().PlayCubStackFX();
-        gameObject.GetComponent<PlayerController>().UpdateScoresAnimation();
-        gameObject.GetComponent<PlayerController>().StartJumpAnimation();
+        playerController.PlayCubStackFX();
+        playerController.UpdateScoresAnimation();
+        playerController.StartJumpAnimation();
         PlayerCubeBehaviour newCube = Instantiate(playerCub, transform.position, Quaternion.identity);
         playerCubs.Add(newCube);
         newCube.transform.parent = cubeHolder.transform;
@@ -43,13 +37,12 @@ public class PlayerCubeController : MonoBehaviour
 
     private void UpdateHeight(float difference)
     {
-        //gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + difference, transform.position.z);
-
         Vector3 newPos = new Vector3(transform.position.x, transform.position.y + difference, transform.position.z);
         var t = Time.deltaTime * 70f;
         gameObject.transform.position = Vector3.Lerp(transform.position, newPos, t);
     }
-    public void RemoveCube(/*PlayerCubeBehaviour playerCube*/)
+
+    public void RemoveCube()
     {
         if (Application.platform == RuntimePlatform.Android)
         {
@@ -57,9 +50,8 @@ public class PlayerCubeController : MonoBehaviour
         }
 
         cameraShake.ShakeCamera();
-        gameObject.GetComponent<PlayerController>().StartJumpAnimation();
+        playerController.StartJumpAnimation();
         PlayerCubeBehaviour lastCube = playerCubs[playerCubs.Count - 1];
-        //playerCubs.Remove(playerCube);
         playerCubs.Remove(lastCube);
         Invoke("RemoveHeight", 0.25f);
 
@@ -71,15 +63,13 @@ public class PlayerCubeController : MonoBehaviour
 
     private IEnumerator ActivateLoseProcess()
     {
-        gameObject.GetComponent<PlayerController>().warpFX.Stop();
-        gameObject.GetComponent<PlayerController>().EnableRagdoll();
-        gameObject.GetComponent<InputController>().SetIsTapToMove(false);
-        gameObject.GetComponent<InputController>().SetIsLoseState(true);
+        playerController.warpFX.Stop();
+        playerController.EnableRagdoll();
+        inputController.SetIsTapToMove(false);
+        inputController.SetIsLoseState(true);
         yield return new WaitForSeconds(1.0f);
         gameManager.ActivateLosePanel(true);
     }
-
-    
 
     private void RemoveHeight()
     {
@@ -88,7 +78,7 @@ public class PlayerCubeController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<SelectableCube>())
+        if (other.CompareTag("SelectableCube"))
         {
             Destroy(other.gameObject);
             AddCube();

@@ -59,8 +59,6 @@ public class PlayerController : MonoBehaviour
         {
             playerRigidbodies[i].isKinematic = false;
         }
-        //gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up, ForceMode.Impulse);
-        //gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward, ForceMode.Impulse);
     }
 
     public void StartJumpAnimation()
